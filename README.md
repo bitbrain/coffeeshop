@@ -40,11 +40,26 @@ This demo consists of a data model like this:
 
 ![data-model](data-model.svg)
 
+* **product** a product is any product offered by the coffee shop. 
+* **order** an order always references a product which has been ordered. Optionally, we can expose the status on that order.
+
 ## Architecture
 
 The following diagram describes a high level architecture of this demo:
 
 ![architecture](architecture.svg)
+
+Our barista uses a client (smartphone app or desktop app) to configure an order for a given customer. For example, if a customer
+orders a *coffee*, the barista creates that order in the system. The API client then
+makes a call to the API to create that order. Once the coffee is finished, the barista
+presses a button on the app to confirm that the order is complete.
+
+In order to find out details about each component, refer to the respective documentation of
+each component:
+
+* [api](api/README.md)
+* [catalogue](catalogue/README.md)
+* [orderbook](orderbook/README.md)
 
 ## Credits
 
