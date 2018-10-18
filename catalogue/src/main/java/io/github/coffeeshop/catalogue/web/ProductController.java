@@ -1,5 +1,6 @@
 package io.github.coffeeshop.catalogue.web;
 
+import io.github.coffeeshop.catalogue.dto.ProductDTO;
 import io.github.coffeeshop.catalogue.model.Product;
 import io.github.coffeeshop.catalogue.repository.ProductRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +19,23 @@ public class ProductController {
    }
 
    @GetMapping("/products")
-   Flux<Product> getProducts() {
-      return repository.findAll();
+   Flux<ProductDTO> getProducts() {
+      return repository.findAll()
+            .map(this::convertToDTO);
    }
 
    @GetMapping("/products/{code}")
-   Mono<Product> getProductByCode(@PathVariable String code) {
-      return repository.findFirstByCode(code);
+   Mono<ProductDTO> getProductByCode(@PathVariable String code) {
+      return repository.findFirstByCode(code)
+            .map(this::convertToDTO);
+   }
+
+   private ProductDTO convertToDTO(Product product) {
+      return new ProductDTO(
+            product.getName(),
+            product.getDescription(),
+            product.getImageUrl(),
+            product.getCode()
+      );
    }
 }
