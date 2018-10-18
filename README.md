@@ -1,4 +1,5 @@
 # ☕️🥐 coffeeshop
+
 > Spring 5 + Kubernetes + Terraform
 
 This demo application showcases how to use a [Reactive Web Application based on Spring 5](https://docs.spring.io/spring/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html), deployed via [Terraform](https://terraform.io) onto a [Kubernetes](https://kubernetes.io) cluster.
@@ -32,6 +33,18 @@ This project consists of the following folders:
 Additionally, this project contains the following files:
 
 * `start-coffeeshop.sh` - starts the entire coffeeshop in a local Kubernetes cluster
+
+## Data Model
+
+This demo consists of a data model like this:
+
+![data-model](data-model.svg)
+
+## Architecture
+
+The following diagram describes a high level architecture of this demo:
+
+![architecture](architecture.svg)
 
 ## Credits
 
