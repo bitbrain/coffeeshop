@@ -13,7 +13,6 @@ public class Product {
    private String description;
    private String imageUrl;
    private String code;
-   private float price;
 
    public Product() {
       // noOP
